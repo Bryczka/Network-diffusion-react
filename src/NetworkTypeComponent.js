@@ -1,12 +1,6 @@
 import React, { Component } from "react";
-import {
-  FormControl,
-  Button,
-  RadioGroup,
-  FormControlLabel,
-  Radio,
-  TextField,
-} from "@material-ui/core";
+import { FormControl, Button, RadioGroup, FormControlLabel, Radio, TextField } from "@material-ui/core";
+import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 
 class NetworkTypeComponent extends Component {
   constructor(props) {
@@ -25,6 +19,11 @@ class NetworkTypeComponent extends Component {
   render() {
     return (
       <form onSubmit={this.onGenerationConfirm} style={{ flex: 1 }}>
+        <div style={{ flex: 1, flexDirection: "row", display: "flex", justifyContent: "center" }}>
+          <h3 style={{ marginTop: 0 }}>Generowanie modelu sieci</h3>
+          <ArrowDropDownIcon />
+        </div>
+
         <FormControl
           style={{
             width: "100%",
@@ -34,39 +33,24 @@ class NetworkTypeComponent extends Component {
           <RadioGroup
             value={this.state.radioValue}
             onChange={this.handleRadioChange}
-            style={{ flex: 1, flexDirection: "row", padding: 10 }}
+            style={{ flex: 1, display: "flex", flexDirection: "row", justifyContent: "space-evenly" }}
           >
-            <FormControlLabel
-              value="0"
-              control={<Radio />}
-              label="Sieć regularna"
-            />
-            <FormControlLabel
-              value="1"
-              control={<Radio />}
-              label="Sieć losowa"
-            />
-            <FormControlLabel
-              value="2"
-              control={<Radio />}
-              label="Sieć Scale Free"
-            />
-            <FormControlLabel
-              value="3"
-              control={<Radio />}
-              label="Sieć Small World"
-            />
+            <FormControlLabel value="0" control={<Radio />} label="Sieć regularna" />
+            <FormControlLabel value="1" control={<Radio />} label="Sieć losowa" />
+            <FormControlLabel value="2" control={<Radio />} label="Sieć Scale Free" />
+            <FormControlLabel value="3" control={<Radio />} label="Sieć Small World" />
           </RadioGroup>
-          <div style={{ flexDirection: "row" }}>
+          <div style={{ flex: 1, display: "flex", flexDirection: "row", justifyContent: "center" }}>
             <TextField
               id="outlined-basic"
               label="Liczba węzłów"
               variant="standard"
               value={this.state.nodesCount}
               onChange={this.handleNodesCountChange}
+              style={{ marginRight: 20, width: 150 }}
             />
-            <Button type="submit" variant="contained" color="primary">
-              Generuj nową sieć
+            <Button type="submit" variant="contained" color="primary" s>
+              Generuj sieć
             </Button>
           </div>
         </FormControl>

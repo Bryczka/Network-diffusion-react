@@ -1,11 +1,6 @@
 import React, { Component } from "react";
-import {
-  FormControl,
-  Button,
-  TextField,
-  Select,
-  MenuItem,
-} from "@material-ui/core";
+import { FormControl, Button, TextField, Select, MenuItem } from "@material-ui/core";
+import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 
 class NetworkSimulationComponent extends Component {
   constructor(props) {
@@ -32,43 +27,49 @@ class NetworkSimulationComponent extends Component {
     return (
       <div style={{ flex: 1 }}>
         <form onSubmit={this.onSimulationConfirm} style={{ flex: 1 }}>
+          <div style={{ flex: 1, flexDirection: "row", display: "flex", justifyContent: "center" }}>
+            <h3 style={{ marginTop: 0 }}>Generowanie symulacji rozprzestrzeniania</h3>
+            <ArrowDropDownIcon />
+          </div>
+
           <FormControl
             style={{
               width: "100%",
               alignItems: "center",
             }}
           >
-            <div style={{ flexDirection: "row" }}>
-              <Select
-                value={this.state.modelType}
-                onChange={this.handleModelChange}
-              >
-                <MenuItem value="0">Model SI/SIS</MenuItem>
-                <MenuItem value="1">Model SIR/SIRS</MenuItem>
-                <MenuItem value="2">Model Threshold</MenuItem>
-                <MenuItem value="3">Model Voter</MenuItem>
-                <MenuItem value="3">Model Majority Rule</MenuItem>
-                <MenuItem value="3">Model Sznajd</MenuItem>
+            <div style={{ flexDirection: "row", flex: 1 }}>
+              <Select value={this.state.modelType} onChange={this.handleModelChange} style={{ marginRight: 20, width: 150, paddingBottom: 20 }}>
+                <MenuItem value="0">Model SI</MenuItem>
+                <MenuItem value="1">Model SIS</MenuItem>
+                <MenuItem value="2">Model SIR</MenuItem>
+                <MenuItem value="3">Model Threshold</MenuItem>
+                <MenuItem value="4">Model Voter</MenuItem>
+                <MenuItem value="5">Model Majority Rule</MenuItem>
+                <MenuItem value="6">Model Sznajd</MenuItem>
               </Select>
               <TextField
                 label="Liczba iteracji"
                 variant="standard"
                 value={this.state.iterationsCount}
                 onChange={this.handleIterationsCountChange}
+                style={{ marginRight: 20, width: 150, paddingBottom: 20 }}
               />
               <TextField
                 label="Współczynnik zaraźliwości"
                 variant="standard"
                 value={this.state.infectionRate}
                 onChange={this.handleInfectionRateChange}
+                style={{ marginRight: 20, width: 150, paddingBottom: 20 }}
               />
               <TextField
                 label="Współczynnik ozdrowień"
                 variant="standard"
                 value={this.state.recoveryRate}
                 onChange={this.handleRecoveryRateChange}
+                style={{ marginRight: 20, width: 150, paddingBottom: 20 }}
               />
-              <Button type="submit" variant="contained" color="primary">
+              <Button type="submit" variant="contained" color="primary" style={{ justifySelf: "center" }}>
                 Generuj symulację
               </Button>
             </div>
