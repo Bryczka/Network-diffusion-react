@@ -43,10 +43,12 @@ class NetworkSimulationComponent extends Component {
                 <MenuItem value="0">Model SI</MenuItem>
                 <MenuItem value="1">Model SIS</MenuItem>
                 <MenuItem value="2">Model SIR</MenuItem>
-                <MenuItem value="3">Model Threshold</MenuItem>
-                <MenuItem value="4">Model Voter</MenuItem>
-                <MenuItem value="5">Model Majority Rule</MenuItem>
-                <MenuItem value="6">Model Sznajd</MenuItem>
+                <MenuItem value="3">Model SIRS</MenuItem>
+                <MenuItem value="4">Model SEIR</MenuItem>
+                <MenuItem value="5">Model SEIRS</MenuItem>
+                <MenuItem value="6">Model Voter</MenuItem>
+                <MenuItem value="7">Model Majority Rule</MenuItem>
+                <MenuItem value="8">Model Sznajd</MenuItem>
               </Select>
               <TextField
                 label="Liczba iteracji"
